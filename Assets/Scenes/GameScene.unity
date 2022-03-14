@@ -3796,7 +3796,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 796285373}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3896,11 +3896,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 796285353}
-  m_LocalRotation: {x: -0.08715548, y: -0.000000043545082, z: -0.00000000380969, w: 0.9961947}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.00000016177546, y: 0.67520547, z: 0.68428653}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 795985309}
+  m_LocalScale: {x: 1, y: 1, z: 0.1178987}
+  m_Children: []
   m_Father: {fileID: 795985303}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4035,11 +4034,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 796285373}
-  m_LocalRotation: {x: -2.864398e-30, y: 1.319967e-15, z: 2.1700527e-15, w: 1}
-  m_LocalPosition: {x: 3.6379787e-14, y: 0.000000076293944, z: 0.000000076293944}
-  m_LocalScale: {x: 1, y: 0.9999999, z: 0.9999999}
+  m_LocalRotation: {x: -0.70710695, y: -0.000000022476438, z: -0.0000000842937, w: 0.70710665}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.5000002, y: 1.5000001, z: 0.17684807}
   m_Children: []
-  m_Father: {fileID: 795985289}
+  m_Father: {fileID: 1109849071}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &796285345
@@ -4121,7 +4120,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &796285355
 GameObject:
   m_ObjectHideFlags: 0
@@ -5910,10 +5909,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1109849067}
-  m_LocalRotation: {x: 0.70710695, y: 0.000000022476442, z: 0.0000000842937, w: 0.70710665}
-  m_LocalPosition: {x: 0, y: 0.572004, z: 0.6460004}
-  m_LocalScale: {x: 0.66666657, y: 0.6666666, z: 0.66666657}
-  m_Children: []
+  m_LocalRotation: {x: 0.70710695, y: 0.00000002247644, z: 0.0000000842937, w: 0.70710665}
+  m_LocalPosition: {x: -0, y: 0.6752011, z: 0.6842866}
+  m_LocalScale: {x: 0.66666657, y: 0.66666657, z: 0.66666657}
+  m_Children:
+  - {fileID: 795985309}
   m_Father: {fileID: 795985303}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5931,7 +5931,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PizzaList: []
   player: {fileID: 2006512814}
-  stackSpeed: 0.5
+  stackSpeed: 0.7
   stackHeight: 0.018
 --- !u!4 &1123500974 stripped
 Transform:
