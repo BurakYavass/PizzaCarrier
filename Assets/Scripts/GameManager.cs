@@ -1,8 +1,5 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -17,6 +14,7 @@ public class GameManager : MonoBehaviour
 
     public List<Transform> SpawnPosition=new List<Transform>();
     [SerializeField] private PlayerContScript player;
+    [SerializeField] private PlayerCollisionHandler playerCollisionHandler;
     [SerializeField] private UiScript uiScript;
     [SerializeField] private GameObject carPrefab;
     void Start()
@@ -42,7 +40,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         gameStarted = uiScript.gamestart;
-        gameFinish = player.finish;
+        gameFinish = playerCollisionHandler.finish;
         if (gameFinish)
         {
             StopAllCoroutines();
@@ -50,14 +48,7 @@ public class GameManager : MonoBehaviour
 
        
     }
-
-    // public void CarWaweStarter()
-    // {
-    //     if (gameStarted)
-    //         return;
-    //     StartCoroutine(CarWawe());
-    //
-    // }
+    
 
     IEnumerator CarWawe()
     {
