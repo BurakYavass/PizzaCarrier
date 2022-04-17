@@ -55,7 +55,7 @@ public class PlayerContScript : MonoBehaviour
             endPos = Input.mousePosition;
             
             float xDiff = endPos.x - firstPos.x;
-            transform.Translate(xDiff*Time.deltaTime * _hSpeed/200, 0, 0);
+            transform.Translate(xDiff*Time.fixedDeltaTime * _hSpeed/100, 0, 0);
             
         }
         if(Input.GetMouseButtonUp(0))

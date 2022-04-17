@@ -8847,8 +8847,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 626c2599f0e748b498865da08db867e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hSpeed: 1
-  _vSpeed: 3
+  _hSpeed: 2
+  _vSpeed: 4
   collectCount: 0
   gold: 100
   _collisionHandler: {fileID: 796285372}
