@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using static UnityEngine.Quaternion;
 using DG.Tweening;
@@ -32,7 +33,7 @@ public class PlayerContScript : MonoBehaviour
         
          if (!_collisionHandler.finish && _uiScript.gamestart)
          {
-             transform.position += Vector3.forward * _vSpeed * Time.fixedDeltaTime;
+             transform.position += Vector3.forward * _vSpeed * Time.deltaTime;
              //transform.rotation =  Quaternion.Lerp(transform.rotation,Quaternion.Euler(0f, 0f, 10f*( transform.position.x - targetPositionX)),5f*Time.fixedDeltaTime);
              MousePosition();
          }
@@ -46,6 +47,7 @@ public class PlayerContScript : MonoBehaviour
     
     void MousePosition()
     {
+
         if (Input.GetMouseButtonDown(0))
         {
             firstPos = Input.mousePosition;
@@ -53,9 +55,9 @@ public class PlayerContScript : MonoBehaviour
         else if (Input.GetMouseButton(0))
         {
             endPos = Input.mousePosition;
-            
-            float xDiff = endPos.x - firstPos.x;
-            transform.Translate(xDiff*Time.fixedDeltaTime * _hSpeed/100, 0, 0);
+            var disaredposition = Mathf.Lerp(firstPos.x, endPos.x, 1);
+            //float xDiff = endPos.x - firstPos.x;
+            transform.Translate(disaredposition*Time.deltaTime * _hSpeed/100, 0, 0);
             
         }
         if(Input.GetMouseButtonUp(0))
