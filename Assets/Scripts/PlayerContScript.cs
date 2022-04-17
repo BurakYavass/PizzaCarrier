@@ -25,6 +25,11 @@ public class PlayerContScript : MonoBehaviour
     
     void FixedUpdate()
     {
+        Vector3 clampedPosition = transform.position;
+
+        clampedPosition.x = Mathf.Clamp(clampedPosition.x, -0.6f, 0.6f);
+        transform.position = clampedPosition;
+        
          if (!_collisionHandler.finish && _uiScript.gamestart)
          {
              transform.position += Vector3.forward * _vSpeed * Time.fixedDeltaTime;
