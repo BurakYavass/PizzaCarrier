@@ -6,7 +6,7 @@ public class CarMovement : MonoBehaviour
 {
     public float speed = 5.0f;
     
-    void FixedUpdate()
+    void Update()
     {
         transform.position += new Vector3(0, 0,-1*speed)*Time.deltaTime;
         

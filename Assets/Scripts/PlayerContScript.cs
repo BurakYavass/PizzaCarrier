@@ -13,41 +13,61 @@ public class PlayerContScript : MonoBehaviour
     private float _horizontal;
     public float _hSpeed;
     public float _vSpeed;
+    
+    private Vector3 firstPos, endPos;
 
     public int collectCount = 0;
     public int gold=100;
     public bool finish = false;
     public bool obstacle = false;
-
-    [SerializeField] private Joystick _joystick;
+    
     [SerializeField] private PizzaStackSc pizzaStack;
     [SerializeField] private UiScript _uiScript;
     private FinalSc _finalSc;
+    
 
     void Start()
     {
         DOTween.Init();
-        _finalSc = FindObjectOfType<FinalSc>();
-
     }
     
-    void FixedUpdate()
+    void LateUpdate()
     {
-        if (!finish && _uiScript.gamestart)
+        transform.position += Vector3.forward * _vSpeed * Time.deltaTime;
+        // if (!finish && _uiScript.gamestart)
+        // {
+        //     transform.position += Vector3.forward * _vSpeed * Time.deltaTime;
+        //     //transform.rotation =  Quaternion.Lerp(transform.rotation,Quaternion.Euler(0f, 0f, 10f*( transform.position.x - targetPositionX)),5f*Time.fixedDeltaTime);
+        //     //MousePosition();
+        // }
+        // else if (finish)
+        // {
+        //     _vSpeed = 0;
+        //     transform.position = new Vector3(0, transform.position.y, 23.65f);
+        //     transform.rotation= Euler(new Vector3(0,-68f,3.54f));
+        // }
+    }
+    
+    void MousePosition()
+    {
+        if (Input.GetMouseButtonDown(0))
         {
-            _horizontal = _joystick.Horizontal;
-            //_vertical = Input.GetAxis("Vertical");
-            var targetPositionX = Mathf.Lerp(transform.position.x, _horizontal, 3f);
-            transform.position += new Vector3(targetPositionX*_hSpeed,0, 1*_vSpeed)*Time.fixedDeltaTime;
-            transform.rotation =  Quaternion.Lerp(transform.rotation,Quaternion.Euler(0f, 0f, 10f*( transform.position.x - targetPositionX)),5f*Time.fixedDeltaTime);
+            firstPos = Input.mousePosition;
+        }
+        else if (Input.GetMouseButton(0))
+        {
+            endPos = Input.mousePosition;
+            
+            float xDiff = endPos.x - firstPos.x;
+            transform.Translate(xDiff*Time.deltaTime * _hSpeed/200, 0, 0);
             
         }
-        else if (finish)
+        if(Input.GetMouseButtonUp(0))
         {
-            _vSpeed = 0;
-            transform.position = new Vector3(0, transform.position.y, 23.65f);
-            transform.rotation= Euler(new Vector3(0,-68f,3.54f));
+            firstPos = Vector3.zero;
+            endPos = Vector3.zero;
         }
+
     }
     
 
@@ -70,7 +90,6 @@ public class PlayerContScript : MonoBehaviour
             //pizzaStack.PizzaList.Clear();
             obstacle = true;
             collectCount = 0;
-            Debug.Log("çalıştı");
             _hSpeed = 0;
             _vSpeed = 0;
             transform.DOPunchPosition(new Vector3(0, 0, 0.1f), 0.5f);
@@ -84,7 +103,7 @@ public class PlayerContScript : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Finish"))
         {
-           _finalSc.StartColorChange();
+            other.GetComponent<FinalSc>().StartColorChange();
             finish = true;
         }
     }

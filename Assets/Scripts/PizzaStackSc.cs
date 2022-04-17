@@ -20,7 +20,7 @@ public class PizzaStackSc : MonoBehaviour
         
     }
     
-    void FixedUpdate()
+    void Update()
     {
         if (PizzaList.Count==0)
         {
