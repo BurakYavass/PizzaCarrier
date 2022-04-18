@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using DG.Tweening;
 using UnityEngine;
@@ -15,7 +16,18 @@ public class PlayerCollisionHandler : MonoBehaviour
     {
         DOTween.Init();
     }
-    
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("collectible"))
+        {
+            pizzaStack.PizzaList.Add(collision.gameObject);
+            collision.collider.isTrigger = true;
+            playerContScript.collectCount++;
+            playerContScript.gold += 5;
+        }
+        
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -30,13 +42,7 @@ public class PlayerCollisionHandler : MonoBehaviour
 
         }
         
-        if (other.gameObject.CompareTag("collectible"))
-        {
-            pizzaStack.PizzaList.Add(other.gameObject);
-            other.isTrigger = true;
-            playerContScript.collectCount++;
-            playerContScript.gold += 5;
-        }
+       
 
         if (finish)
         {

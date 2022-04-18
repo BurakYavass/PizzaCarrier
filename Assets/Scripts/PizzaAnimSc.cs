@@ -7,7 +7,7 @@ using DG.Tweening;
 public class PizzaAnimSc : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] private bool trigger;
+    private bool trigger;
     private bool isPicked=false;
 
     void Start()
@@ -17,18 +17,18 @@ public class PizzaAnimSc : MonoBehaviour
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void Update()
     {
         trigger = transform.GetComponent<BoxCollider>().isTrigger;
     }
-    
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             isPicked = true;
             transform.DOKill();
+            //trigger = false;
         }
     }
 

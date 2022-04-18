@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CarMovement : MonoBehaviour
 {
-    public float speed = 5.0f;
+    public float speed = 4.0f;
     
     void LateUpdate()
     {

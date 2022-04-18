@@ -9,7 +9,7 @@ public class PizzaStackSc : MonoBehaviour
     public List<GameObject> PizzaList;
     [SerializeField] private PlayerCollisionHandler _playerCollisionHandler;
 
-    [SerializeField]private float stackSpeed = 0.5f;
+    [SerializeField]private float stackSpeed = 1f;
     [SerializeField] private float stackHeight = 0.01f;
     void Start()
     {
@@ -35,11 +35,11 @@ public class PizzaStackSc : MonoBehaviour
                 CurrentPizza.transform.position = new Vector3(xPosition, downGameObject.transform.position.y + stackHeight,downGameObject.transform.position.z);
                 
             }
-            if (_playerCollisionHandler.obstacle)
-            {
-                PizzaList.Clear();
-            }
-           
+
+        }
+        if (_playerCollisionHandler.obstacle)
+        {
+            PizzaList.Clear();
         }
     }
     
