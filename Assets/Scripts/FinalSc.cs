@@ -11,13 +11,13 @@ using Cinemachine;
 public class FinalSc : MonoBehaviour
 {
     [SerializeField] private PlayerContScript _player;
-    private int Score = 0;
-    public List<Renderer> _windows = new List<Renderer>();
-    public List<TextMeshProUGUI> _point;
+    [SerializeField] private List<Renderer> _windows = new List<Renderer>();
+    [SerializeField] private List<TextMeshProUGUI> _point;
     [SerializeField] private Transform _camPoint;
     [SerializeField] private float _delay;
     [SerializeField] private GameObject flat;
     
+    private int Score = 0;
 
     private void Start()
     {
@@ -38,8 +38,6 @@ public class FinalSc : MonoBehaviour
     private void LateUpdate()
     {
         Score = _player.collectCount;
-      
-        
     }
     
 
