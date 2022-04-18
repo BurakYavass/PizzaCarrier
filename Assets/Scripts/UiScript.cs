@@ -15,6 +15,7 @@ public class UiScript : MonoBehaviour
     [SerializeField] private TextMeshProUGUI collectText;
     [SerializeField] private GameObject runTimePanel;
     [SerializeField] private GameObject menuPanel;
+    [SerializeField] private GameObject finalPanel;
     
     private int collectCount;
     public bool gamestart = false;
@@ -49,6 +50,11 @@ public class UiScript : MonoBehaviour
         {
             menuPanel.SetActive(true);
             runTimePanel.SetActive(false);
+        }
+
+        if (_gameManager.gameFinish)
+        {
+            finalPanel.SetActive(true);
         }
     }
         

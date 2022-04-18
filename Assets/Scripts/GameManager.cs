@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
     private bool gameStarted;
-    private bool gameFinish=false;
+    public bool gameFinish=false;
     private float spawnPointZ;
     private int maxSpawn=8;
     private float randomNumber;
@@ -49,10 +50,12 @@ public class GameManager : MonoBehaviour
         {
             StopAllCoroutines();
         }
-
-       
     }
-    
+
+    public void GameRestart()
+    {
+        SceneManager.LoadScene(0);
+    }
 
     IEnumerator CarWawe()
     {
