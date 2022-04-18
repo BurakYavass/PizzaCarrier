@@ -35,10 +35,9 @@ public class UiScript : MonoBehaviour
         goldText.SetText(_playerController.gold.ToString());
         
         
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonUp(0))
         {
             gamestart = true;
-            //_gameManager.CarWaweStarter();
         }
         
         if (gamestart)

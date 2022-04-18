@@ -1,15 +1,13 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using DG.Tweening;
-using TMPro;
 
 
 public class PizzaStackSc : MonoBehaviour
 {
 
     public List<GameObject> PizzaList;
-    public PlayerContScript player;
+    [SerializeField] private PlayerCollisionHandler _playerCollisionHandler;
 
     [SerializeField]private float stackSpeed = 0.5f;
     [SerializeField] private float stackHeight = 0.01f;
@@ -26,7 +24,7 @@ public class PizzaStackSc : MonoBehaviour
         {
             PizzaList.Add(gameObject);
         }
-        if (PizzaList.Count >1)
+        else if (PizzaList.Count >1)
         {
             for (int i = 1; i < PizzaList.Count; i++)
             {
@@ -37,20 +35,12 @@ public class PizzaStackSc : MonoBehaviour
                 CurrentPizza.transform.position = new Vector3(xPosition, downGameObject.transform.position.y + stackHeight,downGameObject.transform.position.z);
                 
             }
-            if (player.obstacle)
+            if (_playerCollisionHandler.obstacle)
             {
                 PizzaList.Clear();
             }
            
         }
-
-        
-        
     }
-
-    
-    
-    
-   
     
 }

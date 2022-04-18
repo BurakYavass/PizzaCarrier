@@ -20,11 +20,10 @@ public class PizzaAnimSc : MonoBehaviour
     void LateUpdate()
     {
         trigger = transform.GetComponent<BoxCollider>().isTrigger;
-        
-        
     }
+    
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
