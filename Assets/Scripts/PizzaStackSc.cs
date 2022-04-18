@@ -35,12 +35,12 @@ public class PizzaStackSc : MonoBehaviour
                 CurrentPizza.transform.position = new Vector3(xPosition, downGameObject.transform.position.y + stackHeight,downGameObject.transform.position.z);
                 
             }
-
         }
         if (_playerCollisionHandler.obstacle)
         {
             PizzaList.Clear();
         }
+        
     }
     
 }

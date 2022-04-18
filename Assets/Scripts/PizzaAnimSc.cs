@@ -31,6 +31,7 @@ public class PizzaAnimSc : MonoBehaviour
             //trigger = false;
         }
     }
+    
 
     void MoveY()
     {

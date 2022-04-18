@@ -24,7 +24,7 @@ public class PlayerCollisionHandler : MonoBehaviour
             pizzaStack.PizzaList.Add(collision.gameObject);
             collision.collider.isTrigger = true;
             playerContScript.collectCount++;
-            playerContScript.gold += 5;
+            playerContScript.gold += 2;
         }
         
     }
@@ -57,7 +57,7 @@ public class PlayerCollisionHandler : MonoBehaviour
 
     IEnumerator TimeCounter()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         playerContScript._hSpeed = 2;
         playerContScript._vSpeed = 2.5f;
         obstacle = false;

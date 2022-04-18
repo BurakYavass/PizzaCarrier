@@ -40,8 +40,6 @@ public class PlayerContScript : MonoBehaviour
              transform.position = clampedPosition;
              
              MousePosition();
-
-             //MousePosition();
              // transform.rotation =  Quaternion.Lerp(transform.rotation,
              //                                  Quaternion.Euler(0f, 0f, 10f*( transform.position.x)),
              //                                                                  5f*Time.fixedDeltaTime);
@@ -77,8 +75,6 @@ public class PlayerContScript : MonoBehaviour
             endPos = Vector3.zero;
             //xDiff = 0;
         }
-        
-        
     }
     
 }
