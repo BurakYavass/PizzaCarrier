@@ -17,18 +17,6 @@ public class PlayerCollisionHandler : MonoBehaviour
     }
     
 
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.CompareTag("collectible"))
-        {
-            pizzaStack.PizzaList.Add(other.gameObject);
-            other.collider.isTrigger = true;
-            playerContScript.collectCount++;
-            playerContScript.gold += 5;
-        }
-
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("obstacle"))
@@ -40,6 +28,14 @@ public class PlayerCollisionHandler : MonoBehaviour
             playerContScript.transform.DOPunchPosition(new Vector3(0, 0, 0.1f), 0.5f);
             StartCoroutine(TimeCounter());
 
+        }
+        
+        if (other.gameObject.CompareTag("collectible"))
+        {
+            pizzaStack.PizzaList.Add(other.gameObject);
+            other.isTrigger = true;
+            playerContScript.collectCount++;
+            playerContScript.gold += 5;
         }
 
         if (finish)

@@ -38,7 +38,6 @@ public class UiScript : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             gamestart = true;
-            //_gameManager.CarWaweStarter();
         }
         
         if (gamestart)

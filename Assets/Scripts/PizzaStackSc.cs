@@ -24,7 +24,7 @@ public class PizzaStackSc : MonoBehaviour
         {
             PizzaList.Add(gameObject);
         }
-        if (PizzaList.Count >1)
+        else if (PizzaList.Count >1)
         {
             for (int i = 1; i < PizzaList.Count; i++)
             {
@@ -41,14 +41,6 @@ public class PizzaStackSc : MonoBehaviour
             }
            
         }
-
-        
-        
     }
-
-    
-    
-    
-   
     
 }

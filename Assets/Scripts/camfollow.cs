@@ -10,9 +10,9 @@ public class camfollow : MonoBehaviour
     [SerializeField] private Transform _bikeFollower;
     
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        _bikeFollower.transform.position = Player.transform.position;
+        //_bikeFollower.transform.position = Player.transform.position;
         if (playerCollisionHandler.finish)
         {
             finalCam.enabled=true;

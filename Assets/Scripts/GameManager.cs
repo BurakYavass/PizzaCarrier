@@ -16,9 +16,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlayerContScript player;
     [SerializeField] private PlayerCollisionHandler playerCollisionHandler;
     [SerializeField] private UiScript uiScript;
+    public int targetFrameRate = 30;
     [SerializeField] private GameObject carPrefab;
     void Start()
     {
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = targetFrameRate;
+        
         screenBounds =
             Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 
                 Screen.height, Camera.main.transform.position.z));
