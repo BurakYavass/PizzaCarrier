@@ -50,6 +50,7 @@ public class FinalSc : MonoBehaviour
            _windows[i].material.DOColor(Color.yellow,_delay*0.6f);
            _camPoint.transform.DOKill();
            _camPoint.transform.DOMove(_windows[i].transform.position,_delay*0.6f);
+           _delay-=0.02f;
            yield return null;
           
         }

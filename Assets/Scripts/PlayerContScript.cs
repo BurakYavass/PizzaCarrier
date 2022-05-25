@@ -30,9 +30,7 @@ public class PlayerContScript : MonoBehaviour
     {
          if (!_collisionHandler.finish && _uiScript.gamestart)
          {
-             //transform.position += Vector3.forward * _vSpeed * Time.fixedDeltaTime;
-             
-             transform.position += new Vector3(0, 0, 1*_vSpeed)*Time.fixedDeltaTime;
+             transform.position += Vector3.forward * _vSpeed * Time.fixedDeltaTime;
              
              Vector3 clampedPosition = transform.position;
          
@@ -40,6 +38,7 @@ public class PlayerContScript : MonoBehaviour
              transform.position = clampedPosition;
              
              MousePosition();
+             
              // transform.rotation =  Quaternion.Lerp(transform.rotation,
              //                                  Quaternion.Euler(0f, 0f, 10f*( transform.position.x)),
              //                                                                  5f*Time.fixedDeltaTime);
@@ -54,26 +53,28 @@ public class PlayerContScript : MonoBehaviour
     }
     
 
-
     void MousePosition()
     {
         if (Input.GetMouseButtonDown(0))
         {
             firstPos = Input.mousePosition;
+            
         }
         else if (Input.GetMouseButton(0))
         {
             endPos = Input.mousePosition;
-            xDiff = Mathf.Lerp(firstPos.x, endPos.x, 1);
             xDiff = endPos.x - firstPos.x;
-            transform.Translate(xDiff* _hSpeed/100*Time.deltaTime, 0, 0);
+            
+            //float smoothPosition = Mathf.Lerp(transform.position.x, xDiff, _hSpeed);
+            transform.Translate(xDiff*_hSpeed/Screen.width*100*Time.fixedDeltaTime , 0, 0);
+            firstPos = endPos;
         }
         
         if(Input.GetMouseButtonUp(0))
         {
-            firstPos = Vector3.zero;
-            endPos = Vector3.zero;
-            //xDiff = 0;
+            // firstPos = Vector3.zero;
+            // endPos = Vector3.zero;
+            xDiff = 0;
         }
     }
     

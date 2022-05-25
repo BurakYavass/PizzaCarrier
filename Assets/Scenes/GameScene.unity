@@ -9724,7 +9724,7 @@ MonoBehaviour:
   - {fileID: 580305969}
   _point: []
   _camPoint: {fileID: 1173636199}
-  _delay: 0.4
+  _delay: 0.5
   flat: {fileID: 647691243}
 --- !u!4 &1535422270 stripped
 Transform:
